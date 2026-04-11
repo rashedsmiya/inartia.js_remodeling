@@ -1,13 +1,19 @@
-import { Head } from '@inertiajs/react';
+import React from 'react';
+import { Head, usePage } from '@inertiajs/react';
 import FrontendLayout from '@/layouts/frontend-layout';
+import Banner from '@/components/frontend/home/banner';
 
-export default function Home() {
+interface SiteSetting {
+    site_title?: string;
+}
+
+export default function Home({banner, services}: any) {
+    const {props} = usePage<{ siteSetting: SiteSetting }>();
+    const siteSetting = props.siteSetting;
     return (
         <FrontendLayout>
-            <Head title="Home Page" />
-            <div className="flex items-center justify-center py-24">
-                <h1 className="text-3xl font-semibold">Frontend</h1>
-            </div>
+            <Head title={siteSetting?.site_title} />            
+            <Banner banner={banner} />              
         </FrontendLayout>
     );
 }
