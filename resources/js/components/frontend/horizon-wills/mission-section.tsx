@@ -1,7 +1,7 @@
+import { CircleCheckBig } from 'lucide-react';
 import React from 'react';
 
 import { useReveal } from '@/hooks/use-reveal';
-import { CircleCheckBig } from 'lucide-react';
 
 
 

@@ -15,6 +15,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware(['admin'])->group(function () {
         Route::post('/logout', [AdminLoginController::class, 'logout'])->name('logout');
         Route::get('/dashboard', AdminDashboardController::class)->name('dashboard');
-        Route::get('/users/list', [UserSelectionController::class, 'getUsers'])->name('users.list');
+        Route::get('/users/list', [UserSelectionController::class, 'getUsers'])->name('users.index');
     });
 });

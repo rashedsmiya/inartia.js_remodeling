@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { ContactHeroSection } from '@/components/frontend/contact/contact-hero-section';
-import FrontendLayout from '@/layouts/frontend-layout';
 import { ContactForm } from '@/components/frontend/contact/contact-consultation-section';
 import { ContactFaqSection } from '@/components/frontend/contact/contact-faq-section';
+import { ContactHeroSection } from '@/components/frontend/contact/contact-hero-section';
+import FrontendLayout from '@/layouts/frontend-layout';
 
 
 export default function Contact({ banner, faqs }: any) {

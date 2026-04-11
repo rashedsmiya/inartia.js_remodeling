@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
 import { router } from '@inertiajs/react';
-import FrontendLayout from '@/layouts/frontend-layout';
+import React, { useState } from 'react';
+
 import Index from '@/components/frontend/estimates';
+import FrontendLayout from '@/layouts/frontend-layout';
 
 export type TrackOrderFormData = {
     orderId: string;
