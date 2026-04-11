@@ -1,8 +1,7 @@
-import FileUpload from '@/components/file-upload';
-import Heading from '@/components/heading';
-import InputError from '@/components/input-error';
 import { useForm } from '@inertiajs/react';
 import React, { useState } from 'react';
+
+import InputError from '@/components/input-error';
 
 interface ServiceType {
     id: number | string;
@@ -10,7 +9,7 @@ interface ServiceType {
 }
 
 interface Props {
-    serviceTypes: ServiceType[];
+    serviceTypes?: ServiceType[];
 }
 
 interface FormData {
@@ -18,23 +17,19 @@ interface FormData {
     service_type: string;
 }
 
-export default function ChooseServiceType({ serviceTypes }: Props) {
-
+export default function ChooseServiceType({ serviceTypes = [] }: Props) {
     const getDefaultValue = () => {
         const queryParams = new URLSearchParams(window.location.search);
         return queryParams.get('service') ?? '';
     };
 
-    const { data, setData, post, processing, errors } = useForm<FormData>({
+    const { data, setData, post, errors } = useForm<FormData>({
         files: null,
         service_type: getDefaultValue(),
     });
 
-
     const [selectedService, setSelectedService] =
         useState<string>(getDefaultValue());
-
-
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -57,11 +52,9 @@ export default function ChooseServiceType({ serviceTypes }: Props) {
 
         // Uncomment and use the post call
         post('/free-estimate/store/step1', {
-            // @ts-ignore - Inertia will handle FormData correctly
             forceFormData: true,
         });
     };
-
 
     return (
         <div className="flex items-start justify-center bg-white px-4 py-10">
@@ -155,7 +148,10 @@ export default function ChooseServiceType({ serviceTypes }: Props) {
                                         value={selectedService}
                                         onChange={(e) => {
                                             setSelectedService(e.target.value);
-                                            setData('service_type', e.target.value);
+                                            setData(
+                                                'service_type',
+                                                e.target.value,
+                                            );
                                         }}
                                         className="w-full appearance-none rounded-lg border border-gray-300 bg-white px-4 py-3 pr-10 text-sm text-gray-700 transition-all"
                                     >
@@ -187,11 +183,12 @@ export default function ChooseServiceType({ serviceTypes }: Props) {
                                         </svg>
                                     </div>
                                     {errors.service_type && (
-                                       <InputError message={errors.service_type} />
+                                        <InputError
+                                            message={errors.service_type}
+                                        />
                                     )}
                                 </div>
                             </div>
-
 
                             {/* Tips Box */}
                             <div className="rounded-xl border border-blue-100 bg-blue-50 px-5 py-4">
@@ -232,49 +229,48 @@ export default function ChooseServiceType({ serviceTypes }: Props) {
                             </div>
                         </div>
                     </div>
-                     {/* Card Footer */}
-                        <div className="flex flex-col sm:flex-row justify-between border-t border-gray-100 bg-gray-50 px-8 py-5 gap-3 sm:gap-0">
-                            <button
-                                type="button"
-                                disabled
-
-                                className="flex items-center justify-center gap-1.5 rounded-lg bg-gray-200 px-6 py-2.5 text-sm font-semibold text-gray-700 transition-colors hover:bg-gray-300 w-full sm:w-auto"
+                    {/* Card Footer */}
+                    <div className="flex flex-col justify-between gap-3 border-t border-gray-100 bg-gray-50 px-8 py-5 sm:flex-row sm:gap-0">
+                        <button
+                            type="button"
+                            disabled
+                            className="flex w-full items-center justify-center gap-1.5 rounded-lg bg-gray-200 px-6 py-2.5 text-sm font-semibold text-gray-700 transition-colors hover:bg-gray-300 sm:w-auto"
+                        >
+                            <svg
+                                className="h-4 w-4"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2.5"
+                                viewBox="0 0 24 24"
                             >
-                                <svg
-                                    className="h-4 w-4"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="2.5"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="M15 19l-7-7 7-7"
-                                    />
-                                </svg>
-                                Back
-                            </button>
-                            <button
-                                type="submit"
-                                className="flex items-center justify-center gap-1.5 rounded-lg bg-blue-600 px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700 active:bg-blue-800 w-full sm:w-auto"
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M15 19l-7-7 7-7"
+                                />
+                            </svg>
+                            Back
+                        </button>
+                        <button
+                            type="submit"
+                            className="flex w-full items-center justify-center gap-1.5 rounded-lg bg-blue-600 px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700 active:bg-blue-800 sm:w-auto"
+                        >
+                            Continue
+                            <svg
+                                className="h-4 w-4"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2.5"
+                                viewBox="0 0 24 24"
                             >
-                                Continue
-                                <svg
-                                    className="h-4 w-4"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="2.5"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="M9 5l7 7-7 7"
-                                    />
-                                </svg>
-                            </button>
-                        </div>
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M9 5l7 7-7 7"
+                                />
+                            </svg>
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
