@@ -15,45 +15,44 @@ export function FrontendHeader() {
                 </a>
                 <nav className="hidden min-[992px]:flex items-center gap-2 lg:gap-5 xl:gap-7 text-base font-bold text-gray-800 font-inter ">
                     <a
-                    className="transition-colors duration-150 text-sm font-normal text-blue-600"
+                    className="transition-colors duration-150 text-sm font-normal "
                     href="/"
                     >
                     Home
                     </a>
                     <a
-                    className="transition-colors duration-150 text-sm font-normal text-gray-900 hover:text-blue-600"
-                    href="/bathroom"
+                    className="transition-colors duration-150 text-sm font-normal text-gray-900 hover:text-blue-600" onClick={() => window.location.href = '/bathroom-remodeling'}
                     >
                     Bathroom Remodeling
                     </a>
                     <a
                     className="transition-colors duration-150 text-sm font-normal text-gray-900 hover:text-blue-600"
-                    href="/how-it-works"
+                    onClick={() => window.location.href = '/how-it-works'}
                     >
                     How It Works
                     </a>
                     <a
                     className="transition-colors duration-150 text-sm font-normal text-gray-900 hover:text-blue-600"
-                    href="/about"
+                    onClick={() => window.location.href = '/about'}
                     >
                     About
                     </a>
                     <a
                     className="transition-colors duration-150 text-sm font-normal text-gray-900 hover:text-blue-600"
-                    href="/contact"
+                    onClick={() => window.location.href = '/contact'}
                     >
                     Contact
                     </a>
                     <a
                     className="transition-colors duration-150 text-sm font-normal text-gray-900 hover:text-blue-600"
-                    href="/track-orders"
+                    onClick={() => window.location.href = '/track-order'}
                     >
                     Track Order
                     </a>
                 </nav>
                 <a
                     className="hidden min-[992px]:inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-blue-700 hover:bg-blue-800 text-white  text-base font-bold font-inter shadow-sm active:bg-blue-900 transition-colors duration-150 whitespace-nowrap"
-                    href="https://drorange.maktechlaravel.cloud/free-estimate"
+                    onClick={() => window.location.href = '/free-estimate'}
                 >
                     Get Free Estimates
                 </a>
@@ -126,7 +125,7 @@ export function FrontendHeader() {
                 </a>
                 <a
                     className="py-2 text-sm font-medium transition-colors duration-150 text-gray-800 hover:text-blue-600"
-                    href="/track-orders"
+
                 >
                     Track Order
                 </a>
