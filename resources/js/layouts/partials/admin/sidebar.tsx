@@ -26,52 +26,52 @@ const adminNavItems: NavItem[] = [
         slug: 'dashboard',
     },
     {
-        title: 'User Management',
+        title: 'Page Management',
         href: '#',
         icon: Users,
         badge: 42,
         children: [
             {
-                title: 'Admins',
+                title: 'Home Page',
                 href: '#',
                 icon: Shield,
                 permission: 'manage admins',
                 children: [
-                    { title: 'All Admins', href: '#' },
-                    { title: 'Active', href: '#' },
+                    { title: 'Hero Section', href: '#' },
+                    // { title: 'Active', href: '#' },
                     {
-                        title: 'Inactive',
+                        title: 'Services',
                         href: '#',
-                        children: [
-                            { title: 'Recently Inactive', href: '#' },
-                            { title: 'Long Inactive', href: '#' },
-                            {
-                                title: 'Archive',
-                                href: '#',
-                                children: [
-                                    { title: 'Over 1 year', href: '#' },
-                                    { title: 'Over 2 years', href: '#' },
-                                ],
-                            },
-                        ],
+                        // children: [
+                        //     { title: 'Recently Inactive', href: '#' },
+                        //     { title: 'Long Inactive', href: '#' },
+                        //     {
+                        //         title: 'Archive',
+                        //         href: '#',
+                        //         children: [
+                        //             { title: 'Over 1 year', href: '#' },
+                        //             { title: 'Over 2 years', href: '#' },
+                        //         ],
+                        //     },
+                        // ],
                     },
                 ],
             },
-            {
-                title: 'Users',
-                href: '#',
-                icon: User,
-                children: [
-                    {
-                        title: 'All',
-                        href: route('admin.users.index'),
-                        icon: User,
-                        slug: 'admin-users',
-                    },
-                    { title: 'Active', href: '#' },
-                    { title: 'Premium', href: '#', badge: 15 },
-                ],
-            },
+            // {
+            //     title: 'Users',
+            //     href: '#',
+            //     icon: User,
+            //     children: [
+            //         {
+            //             title: 'All',
+            //             href: route('admin.users.index'),
+            //             icon: User,
+            //             slug: 'admin-users',
+            //         },
+            //         { title: 'Active', href: '#' },
+            //         { title: 'Premium', href: '#', badge: 15 },
+            //     ],
+            // },
         ],
     },
     {
@@ -149,16 +149,7 @@ export const AdminSidebar = React.memo<AdminSidebarProps>(
                         isCollapsed ? 'justify-center px-2' : 'px-6',
                     )}
                 >
-                    <Link
-                        href="/"
-                        className="flex items-center gap-2 transition-opacity hover:opacity-80"
-                    >
-                        {isCollapsed ? (
-                            <LayoutGrid className="h-6 w-6 text-primary" />
-                        ) : (
-                            <AppLogo />
-                        )}
-                    </Link>
+                    <h1>BathPro Remodeling</h1>
                 </div>
 
                 {/* Navigation */}

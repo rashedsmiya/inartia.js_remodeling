@@ -12,7 +12,7 @@ export default function Dashboard() {
     return (
         <AdminLayout>
             <Head title="Admin Dashboard" />
-
+            
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                 {/* Welcome Card */}
                 <Card className="col-span-1 xl:col-span-2">

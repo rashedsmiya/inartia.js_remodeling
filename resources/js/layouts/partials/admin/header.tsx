@@ -71,7 +71,7 @@ export function AdminHeader({
 
     return (
         <header className="bg-primary-50">
-            <div className="container mx-auto flex items-center justify-between px-4 py-4 text-primary-500">
+            <div className=" flex items-center justify-between px-4 py-4 text-primary-500">
                 <div className="flex items-center gap-4">
                     {onToggleSidebar && (
                         <Button
