@@ -37,7 +37,9 @@ const adminNavItems: NavItem[] = [
                 icon: Shield,
                 permission: 'manage admins',
                 children: [
-                    { title: 'Hero Section', href: '#' },
+                    { title: 'Hero Section',
+                      href: route('admin.pm.hero-section'),
+                    },
                     // { title: 'Active', href: '#' },
                     {
                         title: 'Services',
@@ -136,7 +138,7 @@ export const AdminSidebar = React.memo<AdminSidebarProps>(
         return (
             <aside
                 className={cn(
-                    'relative hidden h-screen border-r bg-background',
+                    'relative hidden h-screen border-r bg-background ',
                     'transition-all duration-300 ease-in-out',
                     'flex-col md:flex',
                     isCollapsed ? 'w-16' : 'w-64',
