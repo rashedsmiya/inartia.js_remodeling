@@ -258,6 +258,7 @@ export default function Index({ hero }: Props) {
                                                     </p>
                                                 )}
                                             </div> */}
+
                                         </CardContent>
                                     </Card>
 
