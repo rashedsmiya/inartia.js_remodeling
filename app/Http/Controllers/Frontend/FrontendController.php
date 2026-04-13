@@ -3,14 +3,23 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Services\HomePageHeroService;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class FrontendController extends Controller
 {
+    public function __construct(
+        protected HomePageHeroService $heroService,
+    ) {}
+
     public function index(): Response
     {
-        return Inertia::render('frontend/home');
+        $banner = $this->heroService->first();
+
+        return Inertia::render('frontend/home', [
+            'banner' => $banner,
+        ]);
     }
 
     public function BathroomRemodeling(): Response
